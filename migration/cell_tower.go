@@ -8,7 +8,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func Migrate_Cell_Tower() {
+func Migrate_Up_Cell_Tower_table() {
 
 	conn, ok := core.GetDB["psql-0"].GetConnection().(*gorm.DB)
 
@@ -22,5 +22,10 @@ func Migrate_Cell_Tower() {
 		log.Fatalf("Migration failed: %v", err)
 	}
 
-	log.Println("cell_tower migration runs seccessfully")
+}
+
+func Migrate_Down_Cell_Tower_table() {}
+
+func Migrate_Up_Cell_Tower_data() {
+
 }

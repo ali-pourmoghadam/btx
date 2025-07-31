@@ -16,7 +16,7 @@ func LoadConfigFile() (*ini.File, error) {
 		log.Fatal(err)
 	}
 
-	cfg, err := ini.Load(cwd + "/config.ini")
+	cfg, err := ini.Load(cwd + "/../../config.ini")
 
 	if err != nil {
 		return nil, fmt.Errorf("failed to load ini file: %s", err)
