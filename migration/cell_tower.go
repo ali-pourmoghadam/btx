@@ -1,22 +1,26 @@
 package migration
 
-func Migrate() {
+import (
+	"btx/bts"
+	"btx/core"
+	"log"
 
-	// createTableSQL := `
-	// CREATE TABLE IF NOT EXISTS cell_towers (
-	// 	id SERIAL PRIMARY KEY,
-	// 	radio TEXT,
-	// 	mcc INTEGER,
-	// 	mnc INTEGER,
-	// 	lac INTEGER,
-	// 	cid INTEGER,
-	// 	lat DOUBLE PRECISION,
-	// 	lon DOUBLE PRECISION,
-	// 	range INTEGER,
-	// 	samples INTEGER,
-	// 	changeable BOOLEAN,
-	// 	created_at TIMESTAMP,
-	// 	updated_at TIMESTAMP
-	// );`
+	"gorm.io/gorm"
+)
 
+func Migrate_Cell_Tower() {
+
+	conn, ok := core.GetDB["psql-0"].GetConnection().(*gorm.DB)
+
+	if !ok {
+		log.Fatal("GetConnection did not return *gorm.DB")
+	}
+
+	err := conn.AutoMigrate(&bts.CellTower{})
+
+	if err != nil {
+		log.Fatalf("Migration failed: %v", err)
+	}
+
+	log.Println("cell_tower migration runs seccessfully")
 }

@@ -1,5 +1,7 @@
 package core
 
+/* ========================INITIAL NECESSARY DEPENDENCIES======================= */
+
 func Init() {
 
 	dbSetup()
@@ -12,16 +14,5 @@ func dbSetup() {
 	for _, db := range dbs {
 		db.MakeConnection()
 	}
-}
-
-// TAKES CARE DATBASE  MIGRATIONS
-
-func migrate() {
-
-	migrateBTX()
-
-}
-
-func migrateBTX() {
 
 }

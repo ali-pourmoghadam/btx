@@ -19,6 +19,12 @@ type DATABASE interface {
 
 var dbs = []DATABASE{&Psql{}}
 
+// MKAE DATBASES GLOBAL
+
+var GetDB = map[string]DATABASE{
+	"psql-0": dbs[0],
+}
+
 type Psql struct {
 	db *gorm.DB
 }

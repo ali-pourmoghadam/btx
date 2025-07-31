@@ -1,8 +1,11 @@
 package main
 
-import "btx/core"
+import (
+	"btx/core"
+)
 
 func main() {
 
 	core.Init()
+
 }
