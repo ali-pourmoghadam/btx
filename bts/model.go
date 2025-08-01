@@ -2,7 +2,7 @@ package bts
 
 import (
 	"btx/core"
-	"log"
+	"fmt"
 	"time"
 
 	"gorm.io/gorm"
@@ -24,21 +24,21 @@ type CellTower struct {
 	UpdatedAt  time.Time
 }
 
-func (c *CellTower) GetAll() []CellTower {
+func (c *CellTower) GetAll() ([]CellTower, error) {
 
 	var towers []CellTower
 
 	db, ok := core.GetDB["psql-0"].GetConnection().(*gorm.DB)
 
 	if !ok {
-		log.Fatalf("convert type to gorm db  failed")
+		return nil, fmt.Errorf("convert type to gorm db failed")
 	}
 
 	result := db.Find(&towers)
 
 	if result.Error != nil {
-		log.Fatalf("failed to query cell towers: %v", result.Error)
+		return nil, result.Error
 	}
 
-	return towers
+	return towers, nil
 }
