@@ -1,5 +1,11 @@
 package core
 
+import "github.com/gin-gonic/gin"
+
+/* ========================INITIAL GLOBAL OBJECTS======================= */
+
+var R = gin.Default()
+
 /* ========================INITIAL NECESSARY DEPENDENCIES======================= */
 
 func Init() {

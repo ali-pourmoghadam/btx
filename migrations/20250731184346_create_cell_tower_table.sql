@@ -1,6 +1,6 @@
 -- +goose Up
 -- +goose StatementBegin
-CREATE TABLE IF NOT EXISTS btx (
+CREATE TABLE IF NOT EXISTS cell_towers (
     id          BIGSERIAL PRIMARY KEY,
     radio       TEXT,
     mcc         BIGINT,
@@ -21,5 +21,5 @@ CREATE TABLE IF NOT EXISTS btx (
 
 -- +goose Down
 -- +goose StatementBegin
-DROP TABLE IF EXISTS btx;
+DROP TABLE IF EXISTS cell_towers;
 -- +goose StatementEnd

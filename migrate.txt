@@ -1,0 +1,2 @@
+goose -dir ./migrations postgres "host=127.0.0.1 port=43335 user=postgres password=gR9uWq7vL2kMzP1x dbname=btx sslmode=disable" up
+\copy cell_towers (radio, mcc, net, area, cell, unit, lon, lat, range, samples, changeable, created, updated, averagesignal) FROM '/432.csv' WITH (FORMAT csv);
